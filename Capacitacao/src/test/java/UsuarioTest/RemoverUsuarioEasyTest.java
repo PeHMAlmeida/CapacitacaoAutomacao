@@ -20,6 +20,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import Support.Screenshot;
+import Support.Web;
 import Support.generator;
 
 
@@ -33,11 +34,7 @@ public class RemoverUsuarioEasyTest {
 
 	@Before
 	public void setUp() {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Sempre IT\\drivers\\chromedriver.exe");
-		navegador = new ChromeDriver();
-		navegador.manage().window().maximize();
-		navegador.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-		navegador.get("http://www.juliodelima.com.br/taskit/");
+		navegador = Web.createChrome();
 
 		// login
 		WebElement linkSignIn = navegador.findElement(By.linkText("Sign in"));
